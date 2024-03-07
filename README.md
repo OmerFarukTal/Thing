@@ -40,13 +40,13 @@ Checkpoints for SSL models (100ep)
 
 Models are loaded here. 
 
-get_pretrained_imagenet...() loads the asked model from the checkpoint in one of "PAP/best_model_checkpoints" or "PAP/100ep_model_checkpoints". 
+get_pretrained_imagenet_model() loads the asked model from the checkpoint. 
 
 get_finetuned..() loads the asked model finetuned on given dataset as parameter.
 
 ### PAP/eval.py
 
-The file where "Per instance" and "UAP" attacks are tested. It calls functions from "PAP/tools.py". 
+The file where "Per instance" and "UAP" attacks are tested. Also does the linear evalution on Imagenet. It calls functions from "PAP/tools.py". (Look basic_attack_script.sh)
 
 ### PAP/attacks.py
 
@@ -75,12 +75,16 @@ python3 ./attacks.py --mode L4A_base --model_name r50_1x_sk0_mocov3 --model_arch
 
 ### PAP/basic_attack_script.sh
 
-To generate and assess the "Per Instance". Ex:
+To generate and assess the "Per Instance" attacks. Ex:
 
-python3 eval.py --basic_attack yes --model_name r50_1x_sk1_byol --model_arch byol --dataset_name DTD --data_path DTD --basic_attack_name fgsm
+python eval.py --imagenet_test basic_attack --model_name r50_1x_sk0_simclr --model_arch simclr --epsilon 0.00392156862 --basic_attack_name pgd --batch_size 64 --dataset_name imagenet --data_path ../data/
 
 --basic_attack => "yes" or "cross" (Use this as yes)
---attack_name => "fgsm" (You can look at the attacks from the "PAP/utils/basic_attack2.py")
+--attack_name => "fgsm" (You can look at the attacks from the "PAP/utils/basic_attack2.py)
+
+To do linear eval on Imagenet:
+
+python eval.py --imagenet_test raw --model_name r50_1x_sk0_simclr --model_arch simclr --batch_size 64 --dataset_name imagenet --data_path ../data/
 
 
 ### PAP/finetune_script.sh
