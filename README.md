@@ -1,6 +1,4 @@
-# Thing
-
-## Directories
+# Directories
 
 ### PAP/utils
 
@@ -34,7 +32,7 @@ Checkpoints for SSL models. (BEST)
 
 Checkpoints for SSL models (100ep)
 
-## Python Files
+# Python Files
 
 ### PAP/tools.py
 
@@ -60,7 +58,7 @@ In this file 100ep models are loaded. Here I load them seperately, did not use t
 
 In this file best models are loaded. Same issue as in the "PAP/finetuning/SimCLR/best_models_finetune.py".
 
-## Script Files
+# Script Files
 
 They actually have examples in them, to be more explicit:
 
