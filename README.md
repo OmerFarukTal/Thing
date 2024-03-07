@@ -79,8 +79,8 @@ To generate and assess the "Per Instance" attacks. Ex:
 
 python eval.py --imagenet_test basic_attack --model_name r50_1x_sk0_simclr --model_arch simclr --epsilon 0.00392156862 --basic_attack_name pgd --batch_size 64 --dataset_name imagenet --data_path ../data/
 
---basic_attack => "yes" or "cross" (Use this as yes)
---attack_name => "fgsm" (You can look at the attacks from the "PAP/utils/basic_attack2.py)
+--basic_attack_name => "fgsm" (You can look at the attacks from the "PAP/utils/basic_attack2.py)
+--epsilon => epsilon impercebtibility coefficient for attack.
 
 To do linear eval on Imagenet:
 
